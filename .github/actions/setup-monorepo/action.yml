@@ -1,0 +1,28 @@
+name: Setup monorepo
+description: Prepare the monorepo for any automated action(s)
+
+inputs:
+  node-version:
+    description: Version of Node to setup
+    default: 16.x
+  pnpm-version:
+    description: Version of pnpm to setup
+    default: latest
+
+runs:
+  using: composite
+  steps:
+    - name: 🏗 Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: ${{ inputs.pnpm-version }}
+
+    - name: 🏗 Setup Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: pnpm
+
+    - name: 📦 Install dependencies
+      run: pnpm install
+      shell: bash

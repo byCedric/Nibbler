@@ -1,0 +1,41 @@
+name: packages
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - .github/workflows/packages.yml
+      - .prettier*
+      - packages/**
+      - pnpm-lock.yaml
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/packages.yml
+      - .prettier*
+      - packages/**
+      - pnpm-lock.yaml
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗 Setup repository
+        uses: actions/checkout@v3
+
+      - name: 🏗 Setup monorepo
+        uses: ./.github/actions/setup-monorepo
+
+      - name: 🚨 Lint packages
+        run: pnpm -r --if-present --stream --parallel lint --max-warnings 0
+
+      - name: 🛠 Build packages
+        run: pnpm -r --if-present build
+
+      - name: 🧪 Test packages
+        run: pnpm -r --if-present test

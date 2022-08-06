@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules
+npm-debug.log
+package-lock.json
+yarn-error.log
+yarn.lock
+
+# monorepo
+packages/*/node_modules
+packages/*/build
+
+# IDEs
+.idea
+.vscode
+
+# git-crypt keys
+.git/

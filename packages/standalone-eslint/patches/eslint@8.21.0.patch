@@ -1,0 +1,14 @@
+diff --git a/package.json b/package.json
+index a631efcc4b0a768f3b33d2b2af51fcde0011dc36..2881176b6c23de49f8e0114b7318aa08db7b6669 100644
+--- a/package.json
++++ b/package.json
+@@ -10,7 +10,8 @@
+   "exports": {
+     "./package.json": "./package.json",
+     ".": "./lib/api.js",
+-    "./use-at-your-own-risk": "./lib/unsupported-api.js"
++    "./use-at-your-own-risk": "./lib/unsupported-api.js",
++    "./lib/linter/linter": "./lib/linter/linter.js"
+   },
+   "scripts": {
+     "test": "node Makefile.js test",

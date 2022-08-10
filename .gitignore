@@ -10,7 +10,9 @@ yarn.lock
 
 # monorepo
 packages/*/node_modules
+projects/*/node_modules
 packages/*/build
+projects/*/build
 
 # IDEs
 .idea

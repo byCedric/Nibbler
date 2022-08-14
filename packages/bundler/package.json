@@ -1,0 +1,44 @@
+{
+  "name": "@acme/bundler",
+  "version": "0.0.0",
+  "description": "Bundle packages to single files",
+  "author": "Cedric van Putten <npm@cedric.dev>",
+  "license": "MIT",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bycedric/nibbler.git",
+    "directory": "packages/bundler"
+  },
+  "bugs": {
+    "url": "https://github.com/bycedric/nibbler/issues"
+  },
+  "scripts": {
+    "test": "jest",
+    "lint": "tsc --noEmit && eslint .",
+    "clean": "git clean -xdf ./build",
+    "dev": "tsc --sourceMap"
+  },
+  "dependencies": {
+    "@babel/core": "^7.18.9",
+    "@expo/config": "^7.0.1",
+    "@expo/spawn-async": "^1.7.0",
+    "@sindresorhus/slugify": "^1.1.0",
+    "babel-loader": "^8.2.5",
+    "babel-preset-expo": "^9.2.0",
+    "dts-bundle-webpack": "^1.0.2",
+    "memfs": "^3.4.7",
+    "precinct": "^9.0.1",
+    "webpack": "^5.74.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/jest": "^28.1.6",
+    "babel-jest": "^28.1.3",
+    "jest": "^28.1.3"
+  }
+}
